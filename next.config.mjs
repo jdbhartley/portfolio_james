@@ -1,0 +1,27 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+    // Note: cacheComponents: true is not compatible with this application
+    // because we use searchParams for dynamic user selection throughout the app.
+    // The unstable_cache wrappers in app/data.js provide caching benefits instead.
+    experimental: {
+        // Caching all page.jsx files on the client for 5 minutes.
+        // Resulting in immediate navigation and no loading time.
+        staleTimes: {
+            dynamic: 300,
+            static: 300
+        }
+    },
+    env: {
+        /** GitHub username loaded in build time. */
+        GITHUB_USERNAME: process.env.GITHUB_USERNAME || 'jdbhartley',
+    },
+    images: {
+        remotePatterns: [
+            { protocol: 'https', hostname: '**.githubusercontent.com' },
+            { protocol: 'https', hostname: '**.github.com' }
+        ],
+    },
+};
+
+export default (nextConfig);
