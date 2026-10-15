@@ -1,5 +1,5 @@
 {
-  "description": "Software engineer focused on C#/.NET, TypeScript, React, and practical automation.",
+  "description": "James Hartley, software developer working with C#/.NET, TypeScript, React, and PostgreSQL.",
   "githubUsername": "jdbhartley",
   "avatarUrl": "",
   "displayName": "James Hartley",
@@ -8,15 +8,15 @@
   "linkedin": "https://linkedin.com/in/jdbhartley",
   "location": "Lake Elsinore, CA",
   "headline": "Software Engineer · C# / .NET / TypeScript / Unity",
-  "summary": "I build reliable software systems, internal tools, and product features that solve real operational problems. I care about maintainability, clear UX, and shipping with intention.",
+  "summary": "Software developer with experience in C#/.NET, PostgreSQL, React, and TypeScript. At YAPI, I maintained legacy applications, developed backend services and frontend features, and built internal support tools. I also led a seven-person technical support team.",
   "projects": {
     "blacklist": [
       "portfolio",
       "portfolio_nuro"
     ],
     "heroNames": [
-      "ebay-manager",
-      "gmail-manager"
+      "Hyper-Color-Push",
+      "Finesse-The-Ball"
     ]
   },
   "resume": {
@@ -36,9 +36,9 @@
         "company": "YAPI Inc.",
         "years": "2021 - 2026",
         "points": [
-          "Primary maintainer on legacy C# systems and feature delivery.",
+          "Maintained legacy C# applications and developed new features.",
           "Built backend services using C#/.NET and PostgreSQL.",
-          "Delivered frontend capabilities using React + TypeScript."
+          "Developed frontend features in React and TypeScript."
         ]
       },
       {
@@ -56,7 +56,7 @@
         "years": "2017 - 2019",
         "points": [
           "Provided technical consulting, troubleshooting, and system setup support.",
-          "Delivered precision electronics and hardware/software solutions for clients."
+          "Worked on electronics, hardware, and software for clients."
         ]
       },
       {
@@ -73,8 +73,8 @@
         "company": "Nike (Converse Warehouse)",
         "years": "2013",
         "points": [
-          "Supported business systems workflows and process execution in a fast-paced warehouse environment.",
-          "Bridged operations and technical problem solving to improve day-to-day throughput."
+          "Supported business systems and daily workflows in a Converse warehouse.",
+          "Helped resolve technical problems in warehouse operations."
         ]
       }
     ],
@@ -88,12 +88,12 @@
     {
       "date": "2026",
       "title": "Software Developer · YAPI",
-      "description": "Owned and modernized core C# workflows while shipping full-stack features in .NET, PostgreSQL, and TypeScript/React."
+      "description": "Maintained C# applications and developed features using .NET, PostgreSQL, React, and TypeScript."
     },
     {
       "date": "2022",
       "title": "Promoted to Technical Support Lead",
-      "description": "Led support operations and built tooling to increase throughput and improve customer issue resolution consistency."
+      "description": "Led a seven-person support team and built tools for handling customer issues."
     },
     {
       "date": "2020",
@@ -103,12 +103,12 @@
     {
       "date": "2019",
       "title": "Joined YAPI",
-      "description": "Started as Technical Support Specialist and grew into engineering-focused work through operational ownership and automation initiatives."
+      "description": "Joined as a Technical Support Specialist. Later moved into team leadership and software development."
     },
     {
       "date": "2017",
       "title": "Freelance Technical Consultant",
-      "description": "Delivered freelance technical and hardware consulting across varied client environments."
+      "description": "Provided technical consulting, troubleshooting, and hardware support."
     },
     {
       "date": "2014",
@@ -118,7 +118,7 @@
     {
       "date": "2013",
       "title": "Business Systems Analyst · Nike (Converse Warehouse)",
-      "description": "Supported operational systems and process execution in a high-volume warehouse setting."
+      "description": "Supported business systems and daily workflows at a Converse warehouse."
     },
     {
       "date": "2013",

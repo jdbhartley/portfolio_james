@@ -1,16 +1,41 @@
 import "../global.css";
 import LocalFont from "next/font/local";
 import data from "../data.json";
+import { Navigation } from "./components/nav";
+import { Footer } from "./components/footer";
 
 const username = process.env.GITHUB_USERNAME || data.githubUsername;
 const displayName = data.displayName || username;
 
 export const metadata = {
+  metadataBase: new URL(data.website),
   title: {
-    default: `${displayName} · Portfolio`,
+    default: `${displayName} · Software Engineer`,
     template: `%s | ${displayName}`,
   },
   description: data.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: displayName,
+    title: `${displayName} · Software Engineer`,
+    description: data.description,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${displayName} — Software Developer`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${displayName} · Software Engineer`,
+    description: data.description,
+    images: ["/opengraph-image"],
+  },
   robots: {
     index: true,
     follow: true,
@@ -24,7 +49,7 @@ export const metadata = {
   },
   icons: [
     {
-      url: "/favicon.ico",
+      url: "/icon.svg",
       rel: "icon",
       sizes: "any",
       type: "image/svg+xml",
@@ -40,8 +65,13 @@ const calSans = LocalFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={calSans.variable}>
-      <body className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : ""}`}>
+      <body>
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );

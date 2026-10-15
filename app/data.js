@@ -25,35 +25,25 @@ export const getUser = unstable_cache(async (username) => {
 }, (username) => ['getUser', username], { revalidate });
 
 export const getRepos = unstable_cache(async (username) => {
-    console.log('Fetching repos for', username);
-    console.time('getRepos');
-    const res = await fetch('https://api.github.com/users/' + username + '/repos?per_page=100', {
-        headers: githubHeaders(),
-    });
-    console.timeEnd('getRepos');
-    if (!res.ok) {
-        console.error('GitHub API returned an error.', res.status, res.statusText);
-        return [];
-    }
-    const response = await res.json();
-    
-    // Check pagination
-    if (res.headers.get('link')) {
-        let page = 2;
-        let nextLink = res.headers.get('link').split(',').find((link) => link.includes('rel="next"'));
-        while (nextLink) {
-            const nextRes = await fetch('https://api.github.com/users/' + username + '/repos?per_page=100&page=' + page, {
-                headers: githubHeaders(),
+    if (typeof username !== 'string' || !/^[a-z\d](?:[a-z\d-]{0,37}[a-z\d])?$/i.test(username)) return [];
+    const repositories = [];
+    try {
+        for (let page = 1; page <= 10; page++) {
+            const response = await fetch(`https://api.github.com/users/${encodeURIComponent(username)}/repos?per_page=100&page=${page}`, {
+                headers: githubHeaders(), signal: AbortSignal.timeout(5000),
             });
-            const nextResponse = await nextRes.json();
-            response.push(...nextResponse);
-            nextLink = nextRes.headers.get('link')?.split(',').find((link) => link.includes('rel="next"'));
-            page++;
+            if (!response.ok) return repositories;
+            const items = await response.json();
+            if (!Array.isArray(items)) return repositories;
+            repositories.push(...items);
+            if (!response.headers.get('link')?.includes('rel="next"')) break;
         }
+    } catch {
+        // Keep the optional repository browser usable during outages or limits.
+        return repositories;
     }
-    
-    return response;
-}, (username) => ['getRepos', username], { revalidate: HOURS_1 });
+    return repositories;
+}, ['getRepos'], { revalidate: HOURS_1 });
 
 export const getSocialAccounts = unstable_cache(async (username) => {
     console.log('Fetching social accounts for', username);

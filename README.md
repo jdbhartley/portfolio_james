@@ -1,118 +1,40 @@
-# 🔗 [portfolio-jirihofman.vercel.app](https://portfolio-jirihofman.vercel.app)
+# James Hartley · Portfolio
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/import?repository-url=https%3A%2F%2Fgithub.com%2Fjirihofman%2Fportfolio&env=GH_TOKEN,VC_TOKEN)
+Personal portfolio for [jameshartley.dev](https://jameshartley.dev), built with Next.js, React, and Tailwind CSS. Production source lives in [jdbhartley/portfolio_james](https://github.com/jdbhartley/portfolio_james).
 
-My personal portfolio website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) and deployed to [Vercel](https://vercel.com/). Based on [chronark's site](https://chronark.com/). Some ideas borrowed from [leerob/leerob.io](https://github.com/leerob/leerob.io).
+## Local development
 
-It is supposed to be used as a **template for other GitHub users' portfolios**. Data about user and projects are gathered via GitHub and Vercel API.
-
-## Tech stack
-- **Framework**: [Next.js](https://nextjs.org/) 16.1.1
-- **Deployment**: [Vercel](https://vercel.com)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com) 4.1.12
-- **UI**: [React](https://react.dev/) 19.2.3
-
-## Project Information Features
-
-The portfolio automatically displays comprehensive information for each repository in the `/projects` page. Here's what visitors can expect to see for each project:
-
-### Repository Details
-- **Project name** with gradient styling and clickable links
-- **Description** from GitHub repository
-- **Creation date** showing when the project was started
-- **Star count** with compact number formatting
-- **GitHub repository link** for easy access to source code
-
-### Repository Analytics (for your own repositories)
-- **Visitor statistics**: Unique repository visitors in the last 14 days and today
-- **Security alerts**: Dependabot alerts categorized by severity (critical, high, medium, low)
-- **AI assistance**: Count of merged Copilot pull requests in the last 2 weeks
-
-### Deployment & Technology Detection
-- **Vercel integration**: Shows deployment status, Node.js version, and framework info
-- **Framework detection**: 
-  - Next.js projects with Pages Router, App Router, or hybrid detection
-  - Turbopack usage indicator
-  - Next.js version upgrade recommendations
-- **UI library detection**: Automatically identifies Tailwind CSS, React Bootstrap, Primer, and other libraries from package.json
-
-### Data Sources
-- **GitHub API**: Repository information, traffic data, security alerts, pull requests
-- **Vercel API**: Deployment information and project details
-- **GraphQL queries**: Pinned repositories and organization data
-
-All data is cached and refreshed automatically to ensure good performance while providing up-to-date information.
-
-## Running Locally
+Use Node.js 22 or later.
 
 ```sh
-git clone https://github.com/jirihofman/portfolio.git
-cd portfolio
-```
-
-### Environment variables
-Create a `.env.local` file similar to [`.env.example`](https://github.com/jirihofman/portfolio/blob/main/.env.example).
-```sh
-cp .env.example .env.local
-```
-Add your tokens to the `.env.local` file:
-```sh
-# Required: GitHub Personal Access Token (needed for build-time API calls to fetch user data)
-GH_TOKEN=YOUR_GH_TOKEN
-
-# Optional: Vercel token to display deployment information
-VC_TOKEN=YOUR_VERCEL_TOKEN
-
-# Optional: Set to false when using your own data in data.json
-IS_TEMPLATE=true
-```
-
-**Note:** `GH_TOKEN` is **required** for the application to build and run. The build process makes GitHub API calls to fetch your username and repository data. Without a valid token, the build will fail.
-
-Then install dependencies and run the development server:
-```sh
-# Install dependencies.
-npm install
-# Replace jirihofman's personal info with octocat's.
-npm run setup
-# Start hacking.
+npm ci
 npm run dev
 ```
 
-Edit `data.json` to put your personal information there.
+Open http://localhost:3000. For a production check, run `npm run build` followed by `npm start`.
 
-## Cloning / Forking
+No environment variables are required for the main portfolio, project filters, project details, résumé, timeline, or contact page. Optional `GH_TOKEN` increases the API rate limit for the repository browser at `/search`. Keep tokens in `.env.local` or the host's secret settings, never in tracked files.
 
-When using this template for your own portfolio:
+## Updating content
 
-1. Run `npm run setup` to replace the default personal information in `data.json` with template data
-2. Edit `data.json` with your own information (githubUsername, description, heroNames)
-3. Set `IS_TEMPLATE=false` in your `.env.local` file to prevent future builds from reverting your changes
-4. Update the following files with your information:
-   - [ ] `README.md`: Update the link at the top
-   - [ ] `app/layout.jsx`: Update metadata (title, description, favicon) - handled by `setup.mjs`
-   - [ ] `public/favicon.ico`: Add your own favicon - handled by `setup.mjs`
+- `data.json`: identity, contact details, résumé, and career timeline.
+- `lib/projects.js`: curated public projects, descriptions, technologies, lifecycle notes, and external links.
+- `public/projects/`: optimized WebP artwork from the original project repositories.
+- `app/page.jsx`: introduction, selected work, experience summary, and about section.
+- `global.css`: responsive styles, accessibility, reduced motion, and résumé print layout.
 
-### Removing Template Functionality
+Projects are deliberately curated rather than selected by GitHub star counts. The home page and project details render without external API requests. Do not add invented accomplishments or imply that archived prototypes are current products. Professional work and public personal projects are presented separately.
 
-After cloning or forking this repository, you may want to remove all template-specific functionality and references to the original author. This will prepare the repository to be your own personal portfolio without any template reversion logic.
+The résumé's **Print / Save PDF** button uses the browser's print dialog and a dedicated light print stylesheet. Contact links use email, GitHub, and LinkedIn; there is no contact form or submission service.
 
-**Using GitHub Copilot or AI Agent:**
+## Publishing
 
-If you have access to GitHub Copilot Workspace or another AI coding agent, you can use the removal prompt:
+Push to `main` in `jdbhartley/portfolio_james` for the connected hosting service to deploy. Check the commit's deployment status and verify the content at `jameshartley.dev` after pushing. The domain has been served by Netlify; its build settings and repository connection are managed in the hosting account.
 
-```bash
-# Copy the prompt content and provide it to your AI agent
-cat .github/prompts/remove-template.md
-```
+## Verification
 
-The AI agent will:
-- Remove template reversion logic from `lib/setup.mjs`
-- Remove all references to jirihofman
-- Eliminate IS_TEMPLATE environment variable usage
-- Clean up README to focus on personal portfolio use
-- Prepare the repository for your personal use without template features
+Run `npm run build` and `npm audit`. Preview on desktop and a narrow mobile viewport. Check navigation, project filters and search (including no results/reset), project details and outbound links, contact copy feedback, and résumé printing. Check `/robots.txt`, `/sitemap.xml`, `/opengraph-image`, and a nonexistent route.
 
-**Manual Removal:**
+## Credits
 
-If you prefer to remove template functionality manually, follow the detailed instructions in `.github/prompts/remove-template.md`.
+Originally based on [jirihofman's portfolio](https://github.com/jirihofman/portfolio), with influences from [chronark](https://chronark.com). Redesigned for James Hartley. Project artwork comes from James's public repositories; third-party assets in Tafl retain their original ownership as noted on its project page. Cal Sans is bundled locally.

@@ -1,48 +1,78 @@
 "use client";
-
-import { GoArrowLeft } from 'react-icons/go';
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { GoArrowUpRight, GoX } from "react-icons/go";
+import { FaBars } from "react-icons/fa";
 const links = [
   { href: "/projects", label: "Projects" },
-  { href: "/resume", label: "Resume" },
-  { href: "/timeline", label: "Timeline" },
-  { href: "/contact", label: "Contact" },
+  { href: "/resume", label: "Experience" },
+  { href: "/#about", label: "About" },
 ];
-
-export const Navigation = () => {
-  const ref = useRef(null);
-  const [isIntersecting, setIntersecting] = useState(true);
-
+export function Navigation() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   useEffect(() => {
-    if (!ref.current) return;
-    const observer = new IntersectionObserver(([entry]) => setIntersecting(entry.isIntersecting));
-    observer.observe(ref.current);
-    return () => observer.disconnect();
+    function onEscape(event) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("keydown", onEscape);
+    return () => document.removeEventListener("keydown", onEscape);
   }, []);
-
   return (
-    <header ref={ref}>
-      <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
-          isIntersecting ? "bg-zinc-900/0 border-transparent" : "bg-zinc-900/70 border-zinc-800"
-        }`}
-      >
-        <div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
-          <div className="flex justify-between gap-6 text-sm sm:text-base">
-            {links.map((l) => (
-              <Link key={l.href} href={l.href} className="duration-200 text-zinc-400 hover:text-zinc-100 relative block">
-                {l.label}
-              </Link>
-            ))}
-          </div>
-
-          <Link href="/" className="duration-200 text-zinc-300 hover:text-zinc-100" aria-label="Back home">
-            <GoArrowLeft className="w-6 h-6" />
+    <header className="site-header">
+      <div className="wrap header-inner">
+        <Link
+          href="/"
+          className="wordmark"
+          onClick={() => setOpen(false)}
+          aria-label="James Hartley, home"
+        >
+          <span className="monogram">
+            jh<span>.</span>
+          </span>
+          <span className="wordmark-name">James Hartley</span>
+        </Link>
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-expanded={open}
+          aria-controls="primary-navigation"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <GoX /> : <FaBars />}
+        </button>
+        <nav
+          id="primary-navigation"
+          className={`primary-navigation${open ? " is-open" : ""}`}
+          aria-label="Main navigation"
+        >
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={
+                pathname === link.href ||
+                (link.href === "/projects" && pathname.startsWith("/projects/"))
+                  ? "page"
+                  : undefined
+              }
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            className="nav-contact"
+            aria-current={pathname === "/contact" ? "page" : undefined}
+            onClick={() => setOpen(false)}
+          >
+            Contact <GoArrowUpRight />
           </Link>
-        </div>
+        </nav>
       </div>
     </header>
   );
-};
+}
