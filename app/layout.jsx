@@ -10,7 +10,7 @@ const displayName = data.displayName || username;
 export const metadata = {
   metadataBase: new URL(data.website),
   title: {
-    default: `${displayName} · Software Engineer`,
+    default: `${displayName} · C# Developer`,
     template: `%s | ${displayName}`,
   },
   description: data.description,
@@ -19,7 +19,7 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     siteName: displayName,
-    title: `${displayName} · Software Engineer`,
+    title: `${displayName} · C# Developer`,
     description: data.description,
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${displayName} · Software Engineer`,
+    title: `${displayName} · C# Developer`,
     description: data.description,
     images: ["/opengraph-image"],
   },

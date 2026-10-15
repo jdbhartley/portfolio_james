@@ -1,24 +1,24 @@
 "use client";
 import { useState } from "react";
-import { GoCode, GoDatabase, GoWorkflow, GoCheck } from "react-icons/go";
+import { GoCode, GoWorkflow, GoCheck } from "react-icons/go";
 const layers = [
   {
-    name: "Interface",
-    stack: "React + TypeScript",
-    note: "Frontend development with React components and TypeScript.",
+    name: "Application",
+    stack: "C# · Visual Studio",
+    note: "Maintained YAPI’s legacy C# application, fixed integration issues, and released patches.",
     icon: GoCode,
   },
   {
-    name: "System",
-    stack: "C# + .NET",
-    note: ".NET services, REST APIs, and application logic written in C#.",
+    name: "Installation tools",
+    stack: "C# · SQLite",
+    note: "Built a server-installation tool that reduced setup from 2–3 hours to 45–60 minutes.",
     icon: GoWorkflow,
   },
   {
-    name: "Data",
-    stack: "PostgreSQL",
-    note: "Relational data storage with PostgreSQL.",
-    icon: GoDatabase,
+    name: "Admin features",
+    stack: "React · TypeScript",
+    note: "Added remote database resets to the new application’s admin panel.",
+    icon: GoCode,
   },
 ];
 export function SystemSketch() {
@@ -26,15 +26,15 @@ export function SystemSketch() {
   return (
     <div className="system-sketch">
       <div className="sketch-header">
-        <span className="eyebrow">Technology stack</span>
+        <span className="eyebrow">Development work</span>
         <span className="sketch-cross">+</span>
       </div>
       <div className="sketch-canvas">
         <div className="sketch-input">
-          <span className="status-dot" /> HTTP request
+          <span className="status-dot" /> YAPI application & tools
         </div>
         <div className="sketch-connector" />
-        <div className="system-layers" aria-label="Explore my stack">
+        <div className="system-layers" aria-label="Development experience">
           {layers.map((layer, index) => (
             <button
               type="button"
@@ -56,7 +56,7 @@ export function SystemSketch() {
         </div>
         <div className="sketch-connector" />
         <div className="sketch-output">
-          <GoCheck /> API response
+          <GoCheck /> Jul 2019 – Mar 2026
         </div>
         <span className="canvas-corner corner-tl" />
         <span className="canvas-corner corner-br" />
@@ -66,8 +66,8 @@ export function SystemSketch() {
         <p>{layers[active].note}</p>
       </div>
       <div className="sketch-footer">
-        <span>Frontend / Backend / Database</span>
-        <span>Select a layer ↗</span>
+        <span>C# / SQLite / React</span>
+        <span>Select an area ↗</span>
       </div>
     </div>
   );

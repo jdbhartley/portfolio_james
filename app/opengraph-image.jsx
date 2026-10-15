@@ -6,8 +6,8 @@ export default function OpenGraphImage() {
   return new ImageResponse(
     <div
       style={{
-        background: "#151815",
-        color: "#edf0e8",
+        background: "#0c0c0f",
+        color: "#eeeef0",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -25,7 +25,9 @@ export default function OpenGraphImage() {
         }}
       >
         <span>James Hartley</span>
-        <span style={{ color: "#c4e88a" }}>Software Engineer ↗</span>
+        <span style={{ color: "#aaaab4", display: "flex", gap: 12 }}>
+          C# Developer <span style={{ color: "#ff741f" }}>↗</span>
+        </span>
       </div>
       <div
         style={{
@@ -37,17 +39,17 @@ export default function OpenGraphImage() {
         }}
       >
         <span>James</span>
-        <span style={{ color: "#c4e88a" }}>Hartley</span>
+        <span style={{ color: "#aaaab4" }}>Hartley</span>
       </div>
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
-          color: "#a5afa0",
+          color: "#a5a5ad",
           fontSize: 22,
         }}
       >
-        <span>C# · .NET · TypeScript · React</span>
+        <span>C# · React · TypeScript · SQLite</span>
         <span>jameshartley.dev</span>
       </div>
     </div>,

@@ -12,18 +12,14 @@ export default function Home() {
       <section className="hero wrap" aria-labelledby="intro-title">
         <div className="hero-copy">
           <p className="eyebrow">
-            <span className="status-dot" /> Software developer
+            <span className="status-dot" /> C# development / Technical support
           </p>
           <h1 id="intro-title">
             James
             <br />
             <span>Hartley</span>
           </h1>
-          <p className="hero-description">
-            I work with C#/.NET, React, TypeScript, and PostgreSQL. My background
-            includes application development, internal tools, and technical
-            support. I also make games in Unity.
-          </p>
+          <p className="hero-description">{data.introduction}</p>
           <div className="button-row">
             <a href="#work" className="button button-primary">
               View projects <GoArrowDown />
@@ -38,7 +34,7 @@ export default function Home() {
         </div>
         <SystemSketch />
         <div className="hero-bottom">
-          <span>Full-stack development / Internal tools / Unity games</span>
+          <span>C# applications / Installation tools / React features</span>
           <a href="#work">
             Projects <GoArrowDown />
           </a>
@@ -48,18 +44,45 @@ export default function Home() {
         <div className="wrap stack-inner">
           <span className="eyebrow">Technologies</span>
           <div>
-            {["C#", ".NET", "TypeScript", "React", "PostgreSQL", "Unity"].map(
-              (skill) => (
-                <span key={skill}>{skill}</span>
-              ),
-            )}
+            {data.technologies.map((skill) => (
+              <span key={skill}>{skill}</span>
+            ))}
           </div>
         </div>
       </div>
+      <section
+        className="section wrap professional-work"
+        aria-labelledby="professional-title"
+      >
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">01 / Professional development</p>
+            <h2 id="professional-title">Development at YAPI</h2>
+          </div>
+          <div className="section-intro">
+            <p>
+              Work on the legacy C# application, installation utilities, and the
+              new React/TypeScript admin panel.
+            </p>
+            <Link href="/resume#yapi" className="text-link">
+              YAPI experience <GoArrowRight />
+            </Link>
+          </div>
+        </div>
+        <div className="accomplishment-grid">
+          {data.accomplishments.map((item) => (
+            <article key={item.title}>
+              <p className="eyebrow">{item.title}</p>
+              <h3>{item.value}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
       <section id="work" className="section wrap" aria-labelledby="work-title">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / Projects</p>
+            <p className="eyebrow">02 / Personal projects</p>
             <h2 id="work-title">Games & web projects</h2>
           </div>
           <div className="section-intro">
@@ -90,34 +113,34 @@ export default function Home() {
       <section className="experience-band" aria-labelledby="experience-title">
         <div className="section wrap experience-layout">
           <div>
-            <p className="eyebrow">02 / Experience</p>
-            <h2 id="experience-title">Work at YAPI</h2>
+            <p className="eyebrow">03 / Experience</p>
+            <h2 id="experience-title">Recent work</h2>
             <p className="section-description">
-              I worked on C#/.NET applications, built internal tools, and led a
-              seven-person technical support team.
+              I currently service gaming equipment at AGS. Before that, I spent
+              nearly seven years at YAPI in technical support, leadership, and
+              software development.
             </p>
             <Link href="/resume" className="text-link">
               View résumé <GoArrowUpRight />
             </Link>
           </div>
           <div className="experience-list">
-            {data.resume.experience.slice(0, 2).map((job, i) => (
+            {data.resume.experience.slice(0, 2).map((job) => (
               <article key={job.role}>
                 <div className="job-top">
                   <span className="eyebrow">{job.company}</span>
                   <span>{job.years}</span>
                 </div>
                 <h3>{job.role}</h3>
-                <p>
-                  {i === 0
-                    ? "Maintained core C# systems and shipped backend services and frontend features with .NET, PostgreSQL, React, and TypeScript."
-                    : "Led and mentored a seven-person support team, and built internal tools to make incident resolution more consistent."}
-                </p>
+                <p>{job.summary}</p>
+                {job.id === "yapi" && (
+                  <p className="role-context">
+                    Progressed through specialist and team lead roles; Onshore
+                    Support Manager was my final title.
+                  </p>
+                )}
                 <div className="tag-row">
-                  {(i === 0
-                    ? ["Full-stack development", "Legacy systems"]
-                    : ["Team leadership", "Internal tooling"]
-                  ).map((tag) => (
+                  {job.tags.map((tag) => (
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
@@ -132,21 +155,35 @@ export default function Home() {
         aria-labelledby="about-title"
       >
         <div>
-          <p className="eyebrow">03 / About</p>
+          <p className="eyebrow">04 / About</p>
           <h2 id="about-title">About me</h2>
         </div>
         <div>
           <p className="about-lead">
-            I moved from technical support into software development at YAPI.
+            My background includes C# development, support leadership, and
+            hands-on field service.
           </p>
           <p>
-            My work has included maintaining legacy C# applications, building
-            backend services, and adding features in React and TypeScript.
-            Before that, I worked in technical consulting and field service.
+            At YAPI, I maintained the legacy C# application and built tools the
+            support team used for installations. I also contributed features to
+            the React/TypeScript application while managing six support agents.
           </p>
           <p>
-            I studied simulations programming at The Art Institute. My personal
-            projects include Unity games for mobile and the browser.
+            I earned a C++ Programming State Certificate at Riverside City
+            College and studied simulations programming at the Art Institute of
+            Santa Ana. My personal projects include Unity games for mobile and
+            the browser.
+          </p>
+          <p>
+            {data.sideBusiness.description}{" "}
+            <a
+              className="inline-link"
+              href={data.sideBusiness.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {data.sideBusiness.name} <GoArrowUpRight />
+            </a>
           </p>
           <Link className="text-link" href="/timeline">
             Career timeline <GoArrowUpRight />

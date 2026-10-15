@@ -1,129 +1,242 @@
 {
-  "description": "James Hartley, software developer working with C#/.NET, TypeScript, React, and PostgreSQL.",
+  "description": "James Hartley — C# developer with experience in application maintenance, React/TypeScript features, installation tools, and technical support leadership.",
   "githubUsername": "jdbhartley",
   "avatarUrl": "",
   "displayName": "James Hartley",
-  "email": "jdbhartley@gmail.com",
+  "email": "contact@jameshartley.dev",
   "website": "https://jameshartley.dev",
   "linkedin": "https://linkedin.com/in/jdbhartley",
   "location": "Lake Elsinore, CA",
-  "headline": "Software Engineer · C# / .NET / TypeScript / Unity",
-  "summary": "Software developer with experience in C#/.NET, PostgreSQL, React, and TypeScript. At YAPI, I maintained legacy applications, developed backend services and frontend features, and built internal support tools. I also led a seven-person technical support team.",
+  "headline": "C# Development · Technical Support · Field Service",
+  "summary": "C# developer with experience maintaining YAPI’s legacy application, building installation tools, and contributing React/TypeScript admin features. Led six technical-support agents while continuing hands-on development. Currently a Field Service Technician I at AGS, servicing gaming equipment across Southern California and parts of Arizona.",
   "projects": {
-    "blacklist": [
-      "portfolio",
-      "portfolio_nuro"
-    ],
-    "heroNames": [
-      "Hyper-Color-Push",
-      "Finesse-The-Ball"
-    ]
+    "blacklist": ["portfolio", "portfolio_nuro"],
+    "heroNames": ["Hyper-Color-Push", "Finesse-The-Ball"]
   },
   "resume": {
-    "skills": [
-      "C#",
-      ".NET",
-      "TypeScript",
-      "React",
-      "PostgreSQL",
-      "Unity",
-      "REST APIs",
-      "Git"
+    "displayName": "James Donald Barber Hartley",
+    "skillGroups": [
+      {
+        "label": "Development",
+        "skills": ["C#", "React", "TypeScript", "Visual Studio"]
+      },
+      {
+        "label": "Databases & reporting",
+        "skills": [
+          "SQLite",
+          "PostgreSQL",
+          "SQL Server",
+          "SQL",
+          "Crystal Reports",
+          "IBM Cognos"
+        ]
+      },
+      {
+        "label": "Cloud & support tools",
+        "skills": ["AWS", "GitHub", "Jira", "Zendesk", "Confluence"]
+      },
+      {
+        "label": "Personal projects & studies",
+        "skills": ["Unity", "C++", "JavaScript", "PHP"]
+      }
     ],
     "experience": [
       {
-        "role": "Software Developer",
+        "id": "ags",
+        "role": "Field Service Technician I",
+        "company": "AGS / American Gaming Systems",
+        "years": "Jul 2026 – Present",
+        "summary": "Service gaming equipment across Southern California and parts of Arizona, with parts inventory and on-call responsibilities.",
+        "tags": ["Field service", "Gaming equipment"],
+        "points": [
+          "Install, service, and maintain slot machines, progressive controllers, card shufflers, and table games.",
+          "Replace parts, maintain a service-parts inventory, and provide on-call coverage.",
+          "Travel throughout Southern California and parts of Arizona, maintaining working relationships with casino managers."
+        ]
+      },
+      {
+        "id": "yapi",
+        "role": "Onshore Support Manager",
         "company": "YAPI Inc.",
-        "years": "2021 - 2026",
+        "years": "Jul 2019 – Mar 2026",
+        "progression": "Joined as a Technical Support Specialist; promoted to Senior Specialist in October 2020 and Team Lead in April 2021. Final title: Onshore Support Manager. Software development was part of these roles.",
+        "summary": "Maintained the main legacy C# application, built installation utilities, contributed React/TypeScript admin features, and managed six support agents.",
+        "tags": ["C# development", "Support leadership"],
         "points": [
-          "Maintained legacy C# applications and developed new features.",
-          "Built backend services using C#/.NET and PostgreSQL.",
-          "Developed frontend features in React and TypeScript."
+          "Maintained YAPI’s main legacy C# application, fixed bugs, and released patches; served as its only maintainer during part of the company’s React rebuild.",
+          "Built a C#/SQLite server-installation tool that reduced setup from approximately 2–3 hours to 45–60 minutes.",
+          "Fixed an Eaglesoft connection-string compatibility issue within one day. It affected approximately one-third of YAPI’s Eaglesoft customer base; the patch released the same week after QA approval.",
+          "Added remote database resets to the React/TypeScript admin panel, replacing customer calls and remote server sessions.",
+          "Managed six support agents and a team workload of hundreds of tickets weekly. Conducted reviews, one-on-ones, and training, and reported department progress to the CEO.",
+          "Owned technical-support documentation in Confluence and created training videos. Tested fixes in VM server environments before handing them to QA through Jira."
         ]
       },
       {
-        "role": "Technical Support Lead",
-        "company": "YAPI Inc.",
-        "years": "2019 - 2026",
+        "id": "independent",
+        "role": "Independent Software Engineer / IT Support",
+        "company": "Self-employed",
+        "years": "Apr 2017 – Jul 2019",
         "points": [
-          "Led and mentored a 7-person support team.",
-          "Built internal tooling to reduce incident resolution time and improve consistency."
+          "Handled contracting assignments for hardware and software troubleshooting.",
+          "Installed and migrated business and personal applications."
         ]
       },
       {
-        "role": "Freelance Technical Consultant",
-        "company": "Self-Employed",
-        "years": "2017 - 2019",
+        "id": "suhr",
+        "role": "Guitar Wiring Technician",
+        "company": "JS Technologies / Suhr",
+        "years": "Jan 2017 – Feb 2018",
         "points": [
-          "Provided technical consulting, troubleshooting, and system setup support.",
-          "Worked on electronics, hardware, and software for clients."
+          "Installed pickups and wired custom guitar electronics to supplied schematics.",
+          "Soldered, inspected, and tested completed assemblies."
         ]
       },
       {
-        "role": "Field Technician",
+        "id": "miatech",
+        "role": "Field Service Technician",
         "company": "Miatech Inc.",
-        "years": "2014 - 2017",
+        "years": "Jan 2014 – Jun 2016",
         "points": [
-          "Installed and maintained reverse osmosis and air purification systems.",
-          "Worked independently across Southern California service locations."
+          "Installed and repaired commercial reverse osmosis equipment, produce misters, and meat foggers in supermarkets.",
+          "Diagnosed mechanical and electrical issues and performed preventive maintenance while working independently on service routes."
         ]
       },
       {
-        "role": "Business Systems Analyst",
-        "company": "Nike (Converse Warehouse)",
-        "years": "2013",
+        "id": "nike",
+        "role": "Equipment Operator / Business Systems Analyst project",
+        "company": "Nike / Converse warehouse",
+        "years": "Apr 2010 – Jan 2014",
+        "progression": "Promoted into a reporting-migration project in two phases totaling approximately one year of analyst work within this tenure.",
         "points": [
-          "Supported business systems and daily workflows in a Converse warehouse.",
-          "Helped resolve technical problems in warehouse operations."
+          "Rewrote SQL reports for a migration from Crystal Reports to IBM Cognos.",
+          "Operated forklifts and cherry pickers, handled shipping and receiving, and sorted inventory on automated lines."
         ]
       }
     ],
     "education": [
-      "BS, Simulations Programming — The Art Institute (2009–2013)",
-      "C++ Programming State Certificate — Riverside City College (2020)",
-      "Android Development Nanodegree — Google + Udacity"
+      {
+        "title": "C++ Programming State Certificate",
+        "institution": "Riverside City College",
+        "detail": "Certificate earned; attended May 2018 – May 2019."
+      },
+      {
+        "title": "Simulations Programming studies",
+        "institution": "Art Institute of Santa Ana",
+        "detail": "Jan 2009 – Feb 2010 · Coursework."
+      },
+      {
+        "title": "Android Programming Nanodegree",
+        "institution": "Udacity",
+        "detail": "Completed Sep 2018 · Google scholarship."
+      },
+      {
+        "title": "Learning React.js",
+        "institution": "LinkedIn Learning",
+        "detail": "Completed Feb 2022."
+      },
+      {
+        "title": "High School Diploma",
+        "institution": "Lakeside High",
+        "detail": "Graduated Jun 2008."
+      }
     ]
   },
   "timeline": [
     {
-      "date": "2026",
-      "title": "Software Developer · YAPI",
-      "description": "Maintained C# applications and developed features using .NET, PostgreSQL, React, and TypeScript."
+      "date": "Jul 2026",
+      "title": "Field Service Technician I · AGS",
+      "description": "Joined American Gaming Systems. Service gaming equipment across Southern California and parts of Arizona."
     },
     {
-      "date": "2022",
-      "title": "Promoted to Technical Support Lead",
-      "description": "Led a seven-person support team and built tools for handling customer issues."
+      "date": "Mar 2026",
+      "title": "Completed YAPI tenure",
+      "description": "Finished a nearly seven-year tenure spanning technical support, team leadership, and C# and React/TypeScript development. Final title: Onshore Support Manager."
     },
     {
-      "date": "2020",
-      "title": "C++ Programming State Certificate · Riverside City College",
-      "description": "Completed coursework and earned C++ Programming State Certificate."
+      "date": "Feb 2022",
+      "title": "Learning React.js · LinkedIn Learning",
+      "description": "Completed React.js training."
     },
     {
-      "date": "2019",
-      "title": "Joined YAPI",
-      "description": "Joined as a Technical Support Specialist. Later moved into team leadership and software development."
+      "date": "Apr 2021",
+      "title": "Technical Support Team Lead · YAPI",
+      "description": "Moved into support leadership. Later held the Onshore Support Manager title while continuing development work."
     },
     {
-      "date": "2017",
-      "title": "Freelance Technical Consultant",
-      "description": "Provided technical consulting, troubleshooting, and hardware support."
+      "date": "Oct 2020",
+      "title": "Senior Technical Support Specialist · YAPI",
+      "description": "Promoted from Technical Support Specialist."
     },
     {
-      "date": "2014",
-      "title": "Field Technician · Miatech",
-      "description": "Installed and maintained water/air purification systems throughout Southern California."
+      "date": "Jul 2019",
+      "title": "Technical Support Specialist · YAPI",
+      "description": "Joined YAPI supporting dental software, practice-management integrations, and installations."
     },
     {
-      "date": "2013",
-      "title": "Business Systems Analyst · Nike (Converse Warehouse)",
-      "description": "Supported business systems and daily workflows at a Converse warehouse."
+      "date": "2018–2019",
+      "title": "Programming studies · Riverside City College",
+      "description": "Attended C++ programming studies. Holds the C++ Programming State Certificate."
     },
     {
-      "date": "2013",
-      "title": "BS Simulations Programming · The Art Institute",
-      "description": "Completed Bachelor's degree in Simulations Programming."
+      "date": "Sep 2018",
+      "title": "Android Programming Nanodegree · Udacity",
+      "description": "Completed Android programming training through a Google scholarship."
+    },
+    {
+      "date": "Apr 2017",
+      "title": "Independent Software Engineer / IT Support",
+      "description": "Started independent hardware and software troubleshooting and application installation work, through July 2019."
+    },
+    {
+      "date": "Jan 2017",
+      "title": "Guitar Wiring Technician · Suhr",
+      "description": "Wired, soldered, inspected, and tested custom guitar electronics. Worked at JS Technologies / Suhr through February 2018."
+    },
+    {
+      "date": "Jan 2014",
+      "title": "Field Service Technician · Miatech",
+      "description": "Installed and repaired commercial reverse osmosis, misting, and fogging systems. Worked at Miatech through June 2016."
+    },
+    {
+      "date": "Apr 2010",
+      "title": "Equipment Operator · Nike / Converse",
+      "description": "Worked in warehouse operations through January 2014. Promoted into a SQL reporting migration from Crystal Reports to IBM Cognos in two project phases totaling about one year."
+    },
+    {
+      "date": "2009–2010",
+      "title": "Simulations Programming studies · Art Institute of Santa Ana",
+      "description": "Studied simulations programming from January 2009 to February 2010."
     }
-  ]
+  ],
+  "introduction": "C# developer with experience in application maintenance, installation tools, and React/TypeScript features. My background also includes technical support leadership and field service.",
+  "technologies": [
+    "C#",
+    "React",
+    "TypeScript",
+    "SQLite",
+    "PostgreSQL",
+    "Unity"
+  ],
+  "accomplishments": [
+    {
+      "value": "2–3 hrs → 45–60 min",
+      "title": "Server installation tool",
+      "description": "Built a C#/SQLite tool in Visual Studio that reduced total setup time. All six support agents used it toward the end of my YAPI tenure."
+    },
+    {
+      "value": "Fixed within 1 day",
+      "title": "Eaglesoft compatibility",
+      "description": "Fixed an integration issue affecting about one-third of YAPI’s Eaglesoft customers. The patch shipped the same week after QA approval."
+    },
+    {
+      "value": "Remote database resets",
+      "title": "React / TypeScript admin feature",
+      "description": "Added a reset action to the new application’s admin panel, replacing customer calls and remote server sessions."
+    }
+  ],
+  "sideBusiness": {
+    "name": "jamsengineering.com",
+    "url": "https://jamsengineering.com",
+    "description": "I also run a small business selling 3D-printed appliance replacement parts."
+  }
 }

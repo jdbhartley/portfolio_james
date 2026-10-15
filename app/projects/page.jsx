@@ -17,10 +17,12 @@ export default async function ProjectsPage({ searchParams }) {
       <section className="wrap page-section">
         <div className="page-heading">
           <p className="eyebrow">Games & web applications</p>
-          <h1><span>Projects</span></h1>
+          <h1>
+            <span>Projects</span>
+          </h1>
           <p>
-            Personal projects built with Unity, C#, JavaScript, and PHP.
-            My professional C#/.NET work is listed on the résumé.
+            Personal projects built with Unity, C#, JavaScript, and PHP. My
+            professional C# and React/TypeScript work is listed on the résumé.
           </p>
         </div>
         {customUsername ? (

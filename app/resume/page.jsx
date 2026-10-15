@@ -5,15 +5,17 @@ import { PrintButton } from "../components/print-button";
 export const metadata = {
   title: "Experience & Résumé",
   description:
-    "James Hartley's experience in C#/.NET development, React, TypeScript, technical support leadership, and internal tooling.",
+    "James Hartley's experience in C# application maintenance, React/TypeScript features, installation tools, support management, and field service.",
   alternates: { canonical: "/resume" },
 };
 export default function ResumePage() {
   return (
     <main id="main-content" className="wrap page-section resume-page">
       <div className="page-heading">
-        <p className="eyebrow">James Hartley / Software developer</p>
-        <h1><span>Résumé</span></h1>
+        <p className="eyebrow">{data.resume.displayName}</p>
+        <h1>
+          <span>Résumé</span>
+        </h1>
         <p>{data.summary}</p>
         <div className="button-row">
           <PrintButton />
@@ -28,25 +30,31 @@ export default function ResumePage() {
         </div>
       </div>
       <div className="print-identity">
-        <h2>{data.displayName}</h2>
+        <h2>{data.resume.displayName}</h2>
         <p>
           {data.email} · {data.location} · jameshartley.dev
         </p>
+        <p className="print-summary">{data.summary}</p>
       </div>
       <div className="resume-layout">
         <aside>
           <section>
             <h2 className="eyebrow">Technologies</h2>
-            <div className="tag-row">
-              {data.resume.skills.map((skill) => (
-                <span key={skill}>{skill}</span>
-              ))}
-            </div>
+            {data.resume.skillGroups.map((group) => (
+              <div className="skill-group" key={group.label}>
+                <h3>{group.label}</h3>
+                <p>{group.skills.join(" · ")}</p>
+              </div>
+            ))}
           </section>
           <section>
             <h2 className="eyebrow">Education</h2>
             {data.resume.education.map((education) => (
-              <p key={education}>{education}</p>
+              <div key={education.title} className="education-entry">
+                <h3>{education.title}</h3>
+                <p>{education.institution}</p>
+                <p>{education.detail}</p>
+              </div>
             ))}
           </section>
           <Link className="text-link" href="/timeline">
@@ -54,14 +62,17 @@ export default function ResumePage() {
           </Link>
         </aside>
         <section className="resume-experience">
-          <h2 className="eyebrow">Professional experience</h2>
+          <h2 className="eyebrow">Selected professional experience</h2>
           {data.resume.experience.map((job) => (
-            <article key={`${job.role}-${job.company}`}>
+            <article id={job.id} key={`${job.role}-${job.company}`}>
               <div className="job-top">
                 <span className="eyebrow">{job.company}</span>
                 <span>{job.years}</span>
               </div>
               <h3>{job.role}</h3>
+              {job.progression && (
+                <p className="role-progression">{job.progression}</p>
+              )}
               <ul>
                 {job.points.map((point) => (
                   <li key={point}>{point}</li>
